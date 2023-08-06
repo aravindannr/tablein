@@ -1,8 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:tablein/utils/colorConstants/colors.dart';
-
-import 'HomePage.dart';
+import 'loginPage.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -20,7 +19,7 @@ class _IntroPageState extends State<IntroPage> {
       color: orange,
       child: AnimatedSplashScreen(
         splash: "Assets/images/tablein-logo.png",
-        nextScreen: HomePage(),
+        nextScreen: LoginPage(),
         animationDuration: Duration(seconds: 2),
         splashIconSize: 600,
         centered: true,
