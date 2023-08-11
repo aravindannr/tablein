@@ -3,18 +3,15 @@ import 'package:flutter/material.dart';
 import '../utils/colorConstants/colors.dart';
 
 class CustomTextfield extends StatefulWidget {
-  final TextEditingController controller;
-  final String labelText;
+  final controller;
+  final hintText;
   final bool obscureText;
-  final IconData prefixIcon;
 
-
-   CustomTextfield(
-      {super.key,required this.controller,
-        required this.labelText,
-        required this.obscureText,
-        required this.prefixIcon,
-      });
+  const CustomTextfield(
+      {super.key,
+      required this.controller,
+      required this.hintText,
+      required this.obscureText});
 
   @override
   State<CustomTextfield> createState() => _CustomTextfieldState();
@@ -24,26 +21,23 @@ class _CustomTextfieldState extends State<CustomTextfield> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(22),
+      padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: TextField(
         controller: widget.controller,
         decoration: InputDecoration(
-          prefixIcon: Icon(widget.prefixIcon),
-            labelText: widget.labelText,
-            labelStyle: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 18,
-              color: black,
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(13),
+              borderSide: BorderSide(color: grey),
             ),
-            border: OutlineInputBorder(
+            focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: brown),
-              borderRadius: BorderRadius.circular(20),
             ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: brown),
-          borderRadius: BorderRadius.circular(20),
-        ),),
+            filled: true,
+            fillColor: Colors.white,
+        hintText: widget.hintText,
+        hintStyle:TextStyle(color: grey)),
         obscureText: widget.obscureText,
+
       ),
     );
   }

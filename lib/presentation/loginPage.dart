@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tablein/presentation/signupPage.dart';
 import 'package:tablein/utils/colorConstants/colors.dart';
 
+import '../widgets/Button.dart';
 import '../widgets/loginContainer.dart';
 import '../widgets/textFields.dart';
 
@@ -12,115 +14,106 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController _usernamecontroller = TextEditingController();
-  TextEditingController _passwordcontroller = TextEditingController();
+  final usernamecontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: white,
-        leading: GestureDetector(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.grey.withOpacity(0.2),
-              child: Icon(Icons.arrow_back),
+      backgroundColor: Colors.grey[100],
+      body: SafeArea(
+        child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Text("Welcome Back!", style: mainHeading),
             ),
-          ),
-        ),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Text("Welcome Back!", style: mainHeading),
-          ),
-          SizedBox(height: 30,),
-          // Padding(
-          //   padding: const EdgeInsets.only(left: 30, top: 8),
-          //   child: Text(
-          //     "Enter your Username & Password",
-          //     style: subHeading,
-          //   ),
-          // ),
-          CustomTextfield(
-            controller: _usernamecontroller,
-            labelText: 'Username',
-            obscureText: false,
-            prefixIcon: Icons.person,
-          ),
-          CustomTextfield(
-            controller: _passwordcontroller,
-            labelText: 'Password',
-            obscureText: true,
-            prefixIcon: Icons.lock,
-          ),
-          SizedBox(height: 30,),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-              children: [
-                LoginContainer(
-                  icon: Icons.email,
-                  text: 'continue with email',
-                  onTap: (){},
-                ),
-                LoginContainer(
-                    icon: Icons.email,
-                    text: 'continue with email',
-                    onTap: (){}
-                ),
-                LoginContainer(
-                    icon: Icons.email,
-                    text: 'continue with email',
-                    onTap: (){}
-                ),
-              ],
+            SizedBox(
+              height: 30,
             ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Center(
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  backgroundColor: darkred),
-              child: Text(
-                "Login",
-                style: TextStyle(color: white, fontSize: 28),
+            CustomTextfield(
+              controller: usernamecontroller,
+              hintText: 'Enter your username',
+              obscureText: false,
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            CustomTextfield(
+              controller: passwordcontroller,
+              hintText: 'Enter your password',
+              obscureText: true,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Forget Password?",
+                        style: subHeading,
+                      )),
+                ],
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 113),
-            child: Column(
+            SizedBox(height: 15),
+            MyButton(onTap: () {  }, text: 'Sign in',),
+            SizedBox(height: 15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Forget Password?",
-                      style: subHeading,
-                    )),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Or Create a New Account",
-                    style: subHeading,
-                  ),
-                )
+                Container(
+                  width: 100,
+                  height: 1,
+                  color: black,
+                ),
+
+                Text("Or Continue with"),
+
+                Container(
+                  width: 100,
+                  height: 1,
+                  color: black,
+                ),
               ],
             ),
-          ),
-        ],
+            SizedBox(height: 25),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                LoginContainer(
+                  text: 'google',
+                  onTap: () {},
+                  imagePath: 'Assets/images/google.png',
+                ),
+                LoginContainer(
+                  text: 'email',
+                  onTap: () {},
+                  imagePath: 'Assets/images/gmail.png',
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 110),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUp()));
+                },
+                child: Text(
+                  "Or Create a New Account",
+                  style: subHeading,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
