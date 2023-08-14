@@ -25,19 +25,19 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       child: TextField(
         controller: widget.controller,
         decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(13),
-              borderSide: BorderSide(color: grey),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: brown),
-            ),
-            filled: true,
-            fillColor: Colors.white,
-        hintText: widget.hintText,
-        hintStyle:TextStyle(color: grey)),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(13),
+            borderSide: BorderSide(color: grey),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: brown),
+          ),
+          filled: true,
+          fillColor: Colors.white,
+          hintText: widget.hintText,
+          hintStyle: TextStyle(color: grey),
+        ),
         obscureText: widget.obscureText,
-
       ),
     );
   }
