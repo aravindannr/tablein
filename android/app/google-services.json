@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448991954233",
+    "project_id": "tablein-56028",
+    "storage_bucket": "tablein-56028.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448991954233:android:d36d48469709962e3094e8",
+        "android_client_info": {
+          "package_name": "com.example.tablein"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448991954233-b8ln8uv4615pbr6e74e33v3k1iic9sbg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEMvF5SZaCakhRjyBBjfUBzqey5KgU9yc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448991954233-b8ln8uv4615pbr6e74e33v3k1iic9sbg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
